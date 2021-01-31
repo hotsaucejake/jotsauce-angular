@@ -2,6 +2,7 @@ import { Component, OnInit, HostListener } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
+import { AppSettings } from 'src/app/core/interfaces/app/app-settings.interface';
 
 @Component({
   selector: 'app-full-layout',
@@ -9,34 +10,32 @@ import { PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
   styleUrls: ['./full.component.scss']
 })
 export class FullComponent implements OnInit {
-  public config: PerfectScrollbarConfigInterface = {};
+  public perfectScrollbar: PerfectScrollbarConfigInterface = {};
 
   constructor(public router: Router) {
     this.innerWidth = window.innerWidth;
     this.defaultSidebar = 'full';
   }
 
-  tabStatus = 'justified';
-
   public isCollapsed = false;
 
   public innerWidth: number;
   public defaultSidebar: string;
-  public showSettings = false;
+
   public showMobileMenu = false;
   public expandLogo = false;
 
-  options = {
-    theme: 'light', // two possible values: light, dark
-    dir: 'ltr', // two possible values: ltr, rtl
+  public options: AppSettings = {
+    theme: 'dark', // two possible values: light, dark
+    direction: 'ltr', // two possible values: ltr, rtl
     layout: 'vertical', // two possible values: vertical, horizontal
-    sidebartype: 'full', // four possible values: full, iconbar, overlay, mini-sidebar
-    sidebarpos: 'fixed', // two possible values: fixed, absolute
-    headerpos: 'fixed', // two possible values: fixed, absolute
+    sidebarType: 'full', // four possible values: full, iconbar, overlay, mini-sidebar
+    sidebarPosition: 'fixed', // two possible values: fixed, absolute
+    headerPosition: 'fixed', // two possible values: fixed, absolute
     boxed: 'full', // two possible values: full, boxed
-    navbarbg: 'skin1', // six possible values: skin(1/2/3/4/5/6)
-    sidebarbg: 'skin6', // six possible values: skin(1/2/3/4/5/6)
-    logobg: 'skin6' // six possible values: skin(1/2/3/4/5/6)
+    navbarBackground: 'skin5', // six possible values: skin(1/2/3/4/5/6)
+    sidebarBackground: 'skin3', // six possible values: skin(1/2/3/4/5/6)
+    logoBackground: 'skin3' // six possible values: skin(1/2/3/4/5/6)
   };
 
   Logo(): void {
@@ -47,7 +46,7 @@ export class FullComponent implements OnInit {
     if (this.router.url === '/') {
       this.router.navigate(['/dashboard/dashboard1']);
     }
-    this.defaultSidebar = this.options.sidebartype;
+    this.defaultSidebar = this.options.sidebarType;
     this.handleSidebar();
   }
 
@@ -56,23 +55,27 @@ export class FullComponent implements OnInit {
     this.handleSidebar();
   }
 
+  public updateSettings(updated: AppSettings): void {
+    this.options = updated;
+  }
+
   handleSidebar(): void {
     this.innerWidth = window.innerWidth;
     switch (this.defaultSidebar) {
       case 'full':
       case 'iconbar':
         if (this.innerWidth < 1170) {
-          this.options.sidebartype = 'mini-sidebar';
+          this.options.sidebarType = 'mini-sidebar';
         } else {
-          this.options.sidebartype = this.defaultSidebar;
+          this.options.sidebarType = this.defaultSidebar;
         }
         break;
 
       case 'overlay':
         if (this.innerWidth < 767) {
-          this.options.sidebartype = 'mini-sidebar';
+          this.options.sidebarType = 'mini-sidebar';
         } else {
-          this.options.sidebartype = this.defaultSidebar;
+          this.options.sidebarType = this.defaultSidebar;
         }
         break;
 
@@ -81,10 +84,10 @@ export class FullComponent implements OnInit {
   }
 
   toggleSidebarType(): void {
-    switch (this.options.sidebartype) {
+    switch (this.options.sidebarType) {
       case 'full':
       case 'iconbar':
-        this.options.sidebartype = 'mini-sidebar';
+        this.options.sidebarType = 'mini-sidebar';
         break;
 
       case 'overlay':
@@ -93,9 +96,9 @@ export class FullComponent implements OnInit {
 
       case 'mini-sidebar':
         if (this.defaultSidebar === 'mini-sidebar') {
-          this.options.sidebartype = 'full';
+          this.options.sidebarType = 'full';
         } else {
-          this.options.sidebartype = this.defaultSidebar;
+          this.options.sidebarType = this.defaultSidebar;
         }
         break;
 

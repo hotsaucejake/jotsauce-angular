@@ -59,6 +59,7 @@ import { PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
 
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { SettingsComponent } from './shared/settings/settings.component';
 
 
 export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
@@ -108,7 +109,8 @@ const icons = {
     BreadcrumbComponent,
     VerticalSidebarComponent,
     HorizontalNavigationComponent,
-    HorizontalSidebarComponent
+    HorizontalSidebarComponent,
+    SettingsComponent
   ],
   imports: [
     CommonModule,
