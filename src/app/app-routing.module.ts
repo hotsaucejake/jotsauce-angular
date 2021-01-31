@@ -1,12 +1,13 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { Routes } from '@angular/router';
 
 import { FullComponent } from './layouts/full/full.component';
 import { BlankComponent } from './layouts/blank/blank.component';
+import { AuthenticationGuard } from './core/authentication/authentication.guard';
 
 export const Approutes: Routes = [
   {
     path: '',
+    canActivate: [AuthenticationGuard],
     component: FullComponent,
     children: [
       { path: '', redirectTo: '/starter', pathMatch: 'full' },
@@ -28,10 +29,14 @@ export const Approutes: Routes = [
             (m) => m.AuthenticationModule
           ),
       },
+      {
+        path: '**',
+        redirectTo: '/authentication/404',
+      },
     ],
   },
   {
     path: '**',
-    redirectTo: '/authentication/404',
+    redirectTo: '/authentication/login',
   },
 ];

@@ -2,6 +2,8 @@ import { Component, AfterViewInit, EventEmitter, Output } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
 import { TranslateService } from '@ngx-translate/core';
+import { AuthService } from 'src/app/core/services/auth.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -14,9 +16,24 @@ export class VerticalNavigationComponent implements AfterViewInit {
   public config: PerfectScrollbarConfigInterface = {};
   public showSearch = false;
 
-  constructor(private modalService: NgbModal, private translate: TranslateService) {
+  constructor(
+    private readonly authService: AuthService,
+    private modalService: NgbModal,
+    private readonly router: Router,
+    private translate: TranslateService) {
     translate.setDefaultLang('en');
   }
+  ngAfterViewInit(): void {
+    // throw new Error('Method not implemented.');
+  }
 
-  ngAfterViewInit(): void { }
+  public async logout(): Promise<void> {
+    const resp = await this.authService.logout();
+    console.log(resp); // TODO: fix api requests: 429 Too Many Attempts
+    if (resp.type === 'data') {
+      this.router.navigate(['/'], { replaceUrl: true });
+    } else if (resp.type === 'error') {
+      this.router.navigate(['/'], { replaceUrl: true });
+    }
+  }
 }

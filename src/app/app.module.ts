@@ -117,7 +117,13 @@ const icons = {
     BrowserModule,
     BrowserAnimationsModule,
     FormsModule,
-    ToastrModule.forRoot(),
+    ToastrModule.forRoot({
+      closeButton: true,
+      timeOut: 6000,
+      extendedTimeOut: 3000,
+      progressBar: true,
+      progressAnimation: 'decreasing'
+    }),
     ReactiveFormsModule,
     DataTablesModule,
     HttpClientModule,

@@ -12,10 +12,12 @@ import { SignupComponent } from './signup/signup.component';
 import { Signup2Component } from './signup2/signup2.component';
 
 import { AuthenticationRoutes } from './authentication.routing';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   imports: [
     CommonModule,
+    FormsModule,
     RouterModule.forChild(AuthenticationRoutes),
     NgbModule
   ],
@@ -28,4 +30,4 @@ import { AuthenticationRoutes } from './authentication.routing';
     Signup2Component
   ]
 })
-export class AuthenticationModule {}
+export class AuthenticationModule { }
