@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
@@ -11,7 +11,7 @@ import { AuthService } from 'src/app/core/services/auth.service';
   templateUrl: './login.component.html',
   providers: [AuthService]
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit {
 
   public componentIsLoading = false;
 
@@ -34,7 +34,7 @@ export class LoginComponent {
   public ngOnInit(): void {
 
     if (AuthenticationService.isAuthenticated()) {
-      this.router.navigate(['/index'], { replaceUrl: true });
+      this.router.navigate(['/'], { replaceUrl: true });
     }
 
     this.remember = !!localStorage.getItem('email');

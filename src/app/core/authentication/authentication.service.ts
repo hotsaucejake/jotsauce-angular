@@ -1,4 +1,4 @@
-import { AuthenticationResponse } from "../interfaces/authentication/authentication-response.interface";
+import { AuthenticationResponse } from '../interfaces/authentication/authentication-response.interface';
 
 
 export class AuthenticationService {

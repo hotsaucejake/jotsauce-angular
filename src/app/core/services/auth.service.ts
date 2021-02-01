@@ -1,12 +1,12 @@
-import { Injectable } from "@angular/core";
-import { AuthenticationService } from "../authentication/authentication.service";
-import { AccountAvailability } from "../interfaces/authentication/account-availability.interface";
-import { AuthenticationResponse } from "../interfaces/authentication/authentication-response.interface";
-import { Register } from "../interfaces/authentication/register.interface";
-import { UserCredentials } from "../interfaces/authentication/user-credentials.interface";
-import { User } from "../interfaces/user.interface";
-import { ServiceResponse } from "./models/service-response.interface";
-import { BaseService } from "./_base.service";
+import { Injectable } from '@angular/core';
+import { AuthenticationService } from '../authentication/authentication.service';
+import { AccountAvailability } from '../interfaces/authentication/account-availability.interface';
+import { AuthenticationResponse } from '../interfaces/authentication/authentication-response.interface';
+import { Register } from '../interfaces/authentication/register.interface';
+import { UserCredentials } from '../interfaces/authentication/user-credentials.interface';
+import { User } from '../interfaces/user.interface';
+import { ServiceResponse } from './models/service-response.interface';
+import { BaseService } from './_base.service';
 
 
 @Injectable({ providedIn: 'root' })
