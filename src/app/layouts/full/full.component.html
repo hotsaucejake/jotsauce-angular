@@ -52,8 +52,8 @@
         </nav>
     </header>
 
-    <aside class="left-sidebar" [attr.data-sidebarbg]="options.sidebarBackground" (mouseover)="Logo()"
-        (mouseout)="Logo()">
+    <aside class="left-sidebar" [attr.data-sidebarbg]="options.sidebarBackground" (mouseover)="logo()"
+        (mouseout)="logo()">
         <div *ngIf="options.layout === 'horizontal'; else vlayout">
             <app-horizontal-sidebar></app-horizontal-sidebar>
         </div>

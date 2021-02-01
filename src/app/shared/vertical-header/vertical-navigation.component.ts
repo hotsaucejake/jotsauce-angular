@@ -17,9 +17,9 @@ export class VerticalNavigationComponent implements AfterViewInit {
   public showSearch = false;
 
   constructor(
-    private readonly authService: AuthService,
+    private authService: AuthService,
     private modalService: NgbModal,
-    private readonly router: Router,
+    private router: Router,
     private translate: TranslateService) {
     translate.setDefaultLang('en');
   }
@@ -29,11 +29,9 @@ export class VerticalNavigationComponent implements AfterViewInit {
 
   public async logout(): Promise<void> {
     const resp = await this.authService.logout();
-    console.log(resp); // TODO: fix api requests: 429 Too Many Attempts
-    if (resp.type === 'data') {
-      this.router.navigate(['/'], { replaceUrl: true });
-    } else if (resp.type === 'error') {
-      this.router.navigate(['/'], { replaceUrl: true });
+
+    if (!!resp) {
+      this.router.navigateByUrl('/authentication/login', { replaceUrl: true });
     }
   }
 }

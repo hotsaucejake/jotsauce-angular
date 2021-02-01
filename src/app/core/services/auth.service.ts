@@ -37,9 +37,7 @@ export class AuthService extends BaseService {
     public async logout(): Promise<ServiceResponse<void>> {
 
         const response = await this.getAsync<void>('api/auth/logout');
-        if (response.type === 'data') {
-            AuthenticationService.clearAuthentication();
-        }
+        AuthenticationService.clearAuthentication();
 
         return response;
     }

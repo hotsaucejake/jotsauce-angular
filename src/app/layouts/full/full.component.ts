@@ -38,11 +38,11 @@ export class FullComponent implements OnInit {
     logoBackground: 'skin3' // six possible values: skin(1/2/3/4/5/6)
   };
 
-  Logo(): void {
+  public logo(): void {
     this.expandLogo = !this.expandLogo;
   }
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
     if (this.router.url === '/') {
       this.router.navigate(['/dashboard/dashboard1']);
     }
@@ -59,7 +59,30 @@ export class FullComponent implements OnInit {
     this.options = updated;
   }
 
-  handleSidebar(): void {
+  public toggleSidebarType(): void {
+    switch (this.options.sidebarType) {
+      case 'full':
+      case 'iconbar':
+        this.options.sidebarType = 'mini-sidebar';
+        break;
+
+      case 'overlay':
+        this.showMobileMenu = !this.showMobileMenu;
+        break;
+
+      case 'mini-sidebar':
+        if (this.defaultSidebar === 'mini-sidebar') {
+          this.options.sidebarType = 'full';
+        } else {
+          this.options.sidebarType = this.defaultSidebar;
+        }
+        break;
+
+      default:
+    }
+  }
+
+  private handleSidebar(): void {
     this.innerWidth = window.innerWidth;
     switch (this.defaultSidebar) {
       case 'full':
@@ -83,26 +106,4 @@ export class FullComponent implements OnInit {
     }
   }
 
-  toggleSidebarType(): void {
-    switch (this.options.sidebarType) {
-      case 'full':
-      case 'iconbar':
-        this.options.sidebarType = 'mini-sidebar';
-        break;
-
-      case 'overlay':
-        this.showMobileMenu = !this.showMobileMenu;
-        break;
-
-      case 'mini-sidebar':
-        if (this.defaultSidebar === 'mini-sidebar') {
-          this.options.sidebarType = 'full';
-        } else {
-          this.options.sidebarType = this.defaultSidebar;
-        }
-        break;
-
-      default:
-    }
-  }
 }

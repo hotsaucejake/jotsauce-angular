@@ -135,7 +135,6 @@ const icons = {
     PerfectScrollbarModule,
     NgMultiSelectDropDownModule.forRoot(),
     AgmCoreModule.forRoot({ apiKey: 'AIzaSyDoliAneRffQDyA7Ul9cDk3tLe7vaU4yP8' }),
-
     HttpClientModule,
     TranslateModule.forRoot({
       loader: {

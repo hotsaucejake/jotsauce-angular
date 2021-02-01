@@ -1,3 +1,5 @@
-<router-outlet>
-    <app-spinner></app-spinner>
-</router-outlet>
+<div [@fadeAnimation]="o.isActivated ? o.activatedRoute : ''">
+    <router-outlet #o="outlet">
+        <app-spinner></app-spinner>
+    </router-outlet>
+</div>
