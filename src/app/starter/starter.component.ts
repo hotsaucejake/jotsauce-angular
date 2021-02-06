@@ -1,4 +1,4 @@
-import { Component, AfterViewInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Jot } from '../core/interfaces/jot.interface';
 import { User } from '../core/interfaces/user.interface';
 import { JotService } from '../core/services/jot.service';
@@ -6,7 +6,7 @@ import { UserService } from '../core/services/user.service';
 @Component({
   templateUrl: './starter.component.html'
 })
-export class StarterComponent implements AfterViewInit {
+export class StarterComponent implements OnInit {
 
   public subtitle: string;
 
@@ -26,8 +26,6 @@ export class StarterComponent implements AfterViewInit {
 
     this.loadJots();
   }
-
-  ngAfterViewInit(): void { }
 
   private async loadJots(): Promise<void> {
     const resp = await this.jotService.getJots();
