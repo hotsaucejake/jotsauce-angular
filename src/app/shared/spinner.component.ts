@@ -29,31 +29,25 @@ export class SpinnerComponent implements OnDestroy {
     private router: Router,
     @Inject(DOCUMENT) private document: Document
   ) {
-    console.log('app-spinner');
     this.router.events.subscribe(
       event => {
-        console.log(event);
         if (event instanceof NavigationStart) {
           this.isSpinnerVisible = true;
-          console.log('NavigationStart');
         } else if (
           event instanceof NavigationEnd ||
           event instanceof NavigationCancel ||
           event instanceof NavigationError
         ) {
           this.isSpinnerVisible = false;
-          console.log('NavigationEnd');
         }
       },
       () => {
         this.isSpinnerVisible = false;
-        console.log('otherwise');
       }
     );
   }
 
   ngOnDestroy(): void {
-    console.log('ngOnDestroy');
     this.isSpinnerVisible = false;
   }
 }

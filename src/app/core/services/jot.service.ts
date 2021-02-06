@@ -1,7 +1,7 @@
 import { BaseService } from './_base.service';
 import { ServiceResponse } from './models/service-response.interface';
 import { Injectable } from '@angular/core';
-import { Jot } from '../models/jot.interface';
+import { Jot } from '../interfaces/jot.interface';
 
 @Injectable({ providedIn: 'root' })
 export class JotService extends BaseService {

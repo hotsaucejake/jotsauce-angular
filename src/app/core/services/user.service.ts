@@ -1,7 +1,7 @@
 import { BaseService } from './_base.service';
 import { ServiceResponse } from './models/service-response.interface';
-import { User } from '../models/user.interface';
 import { Injectable } from '@angular/core';
+import { User } from '../interfaces/user.interface';
 
 @Injectable({ providedIn: 'root' })
 export class UserService extends BaseService {
