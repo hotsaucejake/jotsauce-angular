@@ -1,0 +1,126 @@
+<div class="auth-wrapper d-flex no-block justify-content-center align-items-center"
+    style="background:url(assets/images/background/woods.jpg) no-repeat center center;">
+    <div class="auth-box m-3 m-md-0">
+        <div>
+            <div class="logo">
+                <span class="db"><img src="assets/images/logo-icon.png" alt="logo" /></span>
+                <h5 class="font-medium m-b-20">Register</h5>
+            </div>
+            <!-- Form -->
+            <div class="row">
+                <div class="col-12">
+                    <form class="form-horizontal m-t-20" style="min-width: 350px;" #registerForm="ngForm"
+                        name="register">
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text font-weight-bold">
+                                    <i class="ti-user"></i>
+                                </span>
+                            </div>
+                            <input type="text" name="username" class="form-control" placeholder="Username"
+                                aria-label="username" [(ngModel)]="registerModel.username"
+                                (blur)="checkUsernameAvailability(registerForm.form)" [disabled]="componentIsLoading"
+                                minlength="3" maxlength="255" pattern="^[A-Za-z0-9_-]*$" #username="ngModel" required>
+                            <div class="input-group-append" *ngIf="usernameAvailable">
+                                <span class="input-group-text font-weight-bold">
+                                    <i class="ti-check-box text-success"></i>
+                                </span>
+                            </div>
+                            <div class="invalid-feedback d-block"
+                                *ngIf="username.errors?.required && registerForm.form.touched">Required</div>
+                            <div class="invalid-feedback d-block" *ngIf="username.errors?.minlength">Must be at least 3
+                                characters</div>
+                            <div class="invalid-feedback d-block" *ngIf="username.errors?.maxlength">Cannot exceed 255
+                                characters</div>
+                            <div class="invalid-feedback d-block" *ngIf="username.errors?.pattern">Username can only
+                                contain letters, numbers, dashes, and underscores</div>
+                            <div class="invalid-feedback d-block" *ngIf="username.errors?.usernameTaken">Username is
+                                already taken</div>
+                        </div>
+
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text font-weight-bold">
+                                    <i class="ti-email"></i>
+                                </span>
+                            </div>
+                            <input type="email" name="email" class="form-control" placeholder="Email" aria-label="email"
+                                [(ngModel)]="registerModel.email" (blur)="checkEmailAvailability(registerForm.form)"
+                                [disabled]="componentIsLoading" minlength="6" maxlength="255" #email="ngModel" required>
+                            <div class="input-group-append" *ngIf="emailAvailable">
+                                <span class="input-group-text font-weight-bold">
+                                    <i class="ti-check-box text-success"></i>
+                                </span>
+                            </div>
+                            <div class="invalid-feedback d-block"
+                                *ngIf="email.errors?.required && registerForm.form.touched">Required</div>
+                            <div class="invalid-feedback d-block" *ngIf="email.errors?.minlength">Must be a valid email
+                                address</div>
+                            <div class="invalid-feedback d-block" *ngIf="email.errors?.emailTaken">Email is already
+                                taken or invalid</div>
+                        </div>
+
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text font-weight-bold">
+                                    <i class="ti-key"></i>
+                                </span>
+                            </div>
+                            <input type="password" name="password" class="form-control" placeholder="Password"
+                                aria-label="password" [(ngModel)]="registerModel.password"
+                                (blur)="checkPasswordValid(registerForm.form)" [disabled]="componentIsLoading"
+                                #password="ngModel" minlength="8" required>
+                            <div class="input-group-append" *ngIf="passwordValid">
+                                <span class="input-group-text font-weight-bold">
+                                    <i class="ti-check-box text-success"></i>
+                                </span>
+                            </div>
+                            <div class="invalid-feedback d-block"
+                                *ngIf="password.errors?.required && registerForm.form.touched">Required</div>
+                            <div class="invalid-feedback d-block" *ngIf="password.errors?.minlength">Must be at least 8
+                                characters</div>
+                        </div>
+
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text font-weight-bold">
+                                    <i class="ti-key"></i>
+                                </span>
+                            </div>
+                            <input type="password" name="passwordConfirmation" class="form-control"
+                                placeholder="Confirm Password" aria-label="passwordConfirmation"
+                                [(ngModel)]="registerModel.password_confirmation"
+                                (blur)="checkConfirmPasswordValid(registerForm.form)" [disabled]="componentIsLoading"
+                                #passwordConfirmation="ngModel" required>
+                            <div class="input-group-append" *ngIf="confirmPasswordValid">
+                                <span class="input-group-text font-weight-bold">
+                                    <i class="ti-check-box text-success"></i>
+                                </span>
+                            </div>
+                            <div class="invalid-feedback d-block"
+                                *ngIf="passwordConfirmation.errors?.required && registerForm.form.touched">Required
+                            </div>
+                            <div class="invalid-feedback d-block" *ngIf="passwordConfirmation.errors?.mustMatch">
+                                Passwords must match</div>
+                        </div>
+
+                        <div class="form-group text-center ">
+                            <div class="col-xs-12 p-b-20 ">
+                                <a class="btn btn-block btn-lg btn-info" [class.disabled]="componentIsLoading"
+                                    (keyup.enter)="register(registerForm.form)" (click)="register(registerForm.form)">
+                                    <span class="spinner-border spinner-border-sm" role="status"
+                                        *ngIf="componentIsLoading" aria-hidden="true"></span>
+                                    REGISTER</a>
+                            </div>
+                        </div>
+                        <div class="form-group m-b-0 m-t-10 ">
+                            <div class="col-sm-12 text-center ">
+                                Already have an account? <a href="/auth/login" class="text-info m-l-5 "><b>Login</b></a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

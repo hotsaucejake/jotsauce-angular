@@ -31,7 +31,7 @@ export class VerticalNavigationComponent implements AfterViewInit {
     const resp = await this.authService.logout();
 
     if (!!resp) {
-      this.router.navigateByUrl('/authentication/login', { replaceUrl: true });
+      this.router.navigateByUrl('/auth/login', { replaceUrl: true });
     }
   }
 }

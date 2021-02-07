@@ -23,7 +23,7 @@ export const Approutes: Routes = [
     component: BlankComponent,
     children: [
       {
-        path: 'authentication',
+        path: 'auth',
         loadChildren: () =>
           import('./authentication/authentication.module').then(
             (m) => m.AuthenticationModule
@@ -31,12 +31,12 @@ export const Approutes: Routes = [
       },
       {
         path: '**',
-        redirectTo: '/authentication/404',
+        redirectTo: '/auth/404',
       },
     ],
   },
   {
     path: '**',
-    redirectTo: '/authentication/login',
+    redirectTo: '/auth/login',
   },
 ];

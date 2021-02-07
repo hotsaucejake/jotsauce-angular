@@ -730,15 +730,6 @@ export const ROUTES: RouteInfo[] = [
                 submenu: []
             },
             {
-                path: '/authentication/login2',
-                title: 'Login 2',
-                icon: 'mdi mdi-account-key',
-                class: '',
-                ddclass: '',
-                extralink: false,
-                submenu: []
-            },
-            {
                 path: '/authentication/signup',
                 title: 'Register',
                 icon: 'mdi mdi-account-plus',
