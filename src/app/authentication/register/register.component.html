@@ -3,7 +3,6 @@
     <div class="auth-box m-3 m-md-0">
         <div>
             <div class="logo">
-                <span class="db"><img src="assets/images/logo-icon.png" alt="logo" /></span>
                 <h5 class="font-medium m-b-20">Register</h5>
             </div>
             <!-- Form -->
@@ -106,16 +105,19 @@
 
                         <div class="form-group text-center ">
                             <div class="col-xs-12 p-b-20 ">
-                                <a class="btn btn-block btn-lg btn-info" [class.disabled]="componentIsLoading"
+                                <a class="btn btn-block btn-lg btn-primary" [class.disabled]="componentIsLoading"
                                     (keyup.enter)="register(registerForm.form)" (click)="register(registerForm.form)">
                                     <span class="spinner-border spinner-border-sm" role="status"
                                         *ngIf="componentIsLoading" aria-hidden="true"></span>
                                     REGISTER</a>
                             </div>
                         </div>
-                        <div class="form-group m-b-0 m-t-10 ">
-                            <div class="col-sm-12 text-center ">
-                                Already have an account? <a href="/auth/login" class="text-info m-l-5 "><b>Login</b></a>
+                        <div class="form-group m-b-0 m-t-10">
+                            <div class="col-sm-12 text-center">
+                                <div class="col-sm-12 text-center">
+                                    <a routerLink="/auth/login">
+                                        <i class="fas fa-key"></i> Login</a>
+                                </div>
                             </div>
                         </div>
                     </form>
