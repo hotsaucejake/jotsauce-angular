@@ -68,7 +68,6 @@ export class RegisterComponent implements OnInit {
 
   public async checkUsernameAvailability(f: FormGroup): Promise<void> {
     if (f.controls[`username`].valid) {
-      this.componentIsLoading = true;
       this.accountAvailability.username = this.registerModel.username;
       const checkUsernameResponse = await this.authService.checkUsernameAvailability(this.accountAvailability);
       if (checkUsernameResponse.type === 'data') {
@@ -80,13 +79,11 @@ export class RegisterComponent implements OnInit {
         });
       }
     }
-    this.componentIsLoading = false;
   }
 
 
   public async checkEmailAvailability(f: FormGroup): Promise<void> {
     if (f.controls[`email`].valid) {
-      this.componentIsLoading = true;
       this.accountAvailability.email = this.registerModel.email;
       const checkEmailResponse = await this.authService.checkEmailAvailability(this.accountAvailability);
       if (checkEmailResponse.type === 'data') {
@@ -98,7 +95,6 @@ export class RegisterComponent implements OnInit {
         });
       }
     }
-    this.componentIsLoading = false;
   }
 
 
