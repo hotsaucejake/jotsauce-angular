@@ -10,12 +10,13 @@ export const Approutes: Routes = [
     canActivate: [AuthenticationGuard],
     component: FullComponent,
     children: [
-      { path: '', redirectTo: '/starter', pathMatch: 'full' },
+      { path: '', redirectTo: '/index', pathMatch: 'full' },
       {
-        path: 'starter',
+        path: '',
         loadChildren: () =>
-          import('./starter/starter.module').then((m) => m.StarterModule),
+          import('./index/index.module').then((m) => m.IndexModule),
       },
+
     ],
   },
   {
