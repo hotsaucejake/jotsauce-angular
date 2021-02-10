@@ -31,7 +31,8 @@
               "@agm/core",
               "angular-draggable-droppable",
               "@swimlane/ngx-charts",
-              "apexcharts"
+              "apexcharts",
+              "axios"
             ],
             "outputPath": "dist/jotsauce-angular",
             "index": "src/index.html",

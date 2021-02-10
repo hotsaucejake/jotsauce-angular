@@ -19,6 +19,17 @@ export const IndexRoutes: Routes = [
                 data: {
                     title: 'Jots',
                 }
+            },
+            {
+                path: 'jots/:id',
+                component: IndexComponent,
+                data: {
+                    title: 'Jotting',
+                    urls: [
+                        { title: 'Jots', url: '/jots' },
+                        { title: 'Jotting' }
+                    ]
+                },
             }
         ]
     }

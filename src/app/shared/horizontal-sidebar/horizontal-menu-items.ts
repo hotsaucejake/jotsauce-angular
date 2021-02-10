@@ -802,15 +802,6 @@ export const ROUTES: RouteInfo[] = [
                 submenu: []
             },
             {
-                path: '/starter',
-                title: 'Starter Page',
-                icon: 'mdi mdi-crop-free',
-                class: '',
-                ddclass: '',
-                extralink: false,
-                submenu: []
-            },
-            {
                 path: '/timeline/left',
                 title: 'Left Timeline',
                 icon: 'mdi mdi-clock-fast',
