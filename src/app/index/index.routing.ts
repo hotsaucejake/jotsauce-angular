@@ -1,6 +1,6 @@
-import { Routes } from "@angular/router";
-import { IndexComponent } from "./index/index.component";
-import { JotsComponent } from "./jots/jots.component";
+import { Routes } from '@angular/router';
+import { IndexComponent } from './index/index.component';
+import { JotsComponent } from './jots/jots.component';
 
 export const IndexRoutes: Routes = [
     {
