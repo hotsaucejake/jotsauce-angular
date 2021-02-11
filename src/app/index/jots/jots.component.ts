@@ -7,7 +7,7 @@ import { UserService } from 'src/app/core/services/user.service';
 @Component({
   selector: 'app-jots',
   templateUrl: './jots.component.html',
-  styleUrls: ['./jots.component.css']
+  styleUrls: ['./jots.component.scss']
 })
 export class JotsComponent implements OnInit {
 

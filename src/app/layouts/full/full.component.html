@@ -37,32 +37,22 @@
             <div class="navbar-collapse collapse" id="navbarSupportedContent" [ngbCollapse]="!isCollapsed"
                 [attr.data-navbarbg]="options.navbarBackground">
 
-                <div *ngIf="options.layout === 'horizontal' else vheader" class="w-100">
-                    <app-horizontal-navigation class="w-100 d-flex align-items-center">
-                    </app-horizontal-navigation>
+                <div class="w-100">
+                    <app-vertical-navigation (toggleSidebar)="toggleSidebarType()">
+                    </app-vertical-navigation>
                 </div>
-
-                <ng-template #vheader>
-                    <div class="w-100">
-                        <app-vertical-navigation (toggleSidebar)="toggleSidebarType()">
-                        </app-vertical-navigation>
-                    </div>
-                </ng-template>
             </div>
         </nav>
     </header>
 
     <aside class="left-sidebar" [attr.data-sidebarbg]="options.sidebarBackground" (mouseover)="logo()"
         (mouseout)="logo()">
-        <div *ngIf="options.layout === 'horizontal'; else vlayout">
-            <app-horizontal-sidebar></app-horizontal-sidebar>
+
+
+        <div class="scroll-sidebar" [perfectScrollbar]="perfectScrollbar">
+            <app-vertical-sidebar></app-vertical-sidebar>
         </div>
 
-        <ng-template #vlayout>
-            <div class="scroll-sidebar" [perfectScrollbar]="perfectScrollbar">
-                <app-vertical-sidebar></app-vertical-sidebar>
-            </div>
-        </ng-template>
     </aside>
 
     <div class="page-wrapper">

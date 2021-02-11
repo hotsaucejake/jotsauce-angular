@@ -5,7 +5,7 @@ import { AppSettings } from 'src/app/core/interfaces/app/app-settings.interface'
 @Component({
   selector: 'app-settings',
   templateUrl: './settings.component.html',
-  styleUrls: ['./settings.component.css']
+  styleUrls: ['./settings.component.scss']
 })
 export class SettingsComponent implements OnInit {
 

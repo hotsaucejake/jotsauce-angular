@@ -3,8 +3,8 @@
   "version": "0.0.1",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
-    "build": "ng build",
+    "start": "ng serve -o",
+    "build:prod": "ng build --prod && cp ../jotsauce/public/jotsauce-angular/index.html ../jotsauce/resources/views/jotsauce-angular.blade.php",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
