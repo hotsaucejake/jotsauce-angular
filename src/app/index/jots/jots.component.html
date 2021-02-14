@@ -1,6 +1,8 @@
+<app-loading *ngIf="componentIsLoading"></app-loading>
+
 <div class="row" *ngIf="jots.length > 0 && !componentIsLoading">
 
-    <div class="col" *ngFor="let jot of jots">
+    <div class="col-md-4 col-sm-6" *ngFor="let jot of jots">
         <div class="card">
             <div class="card-header">
                 <h3>{{ jot.title }}</h3>
@@ -9,7 +11,7 @@
                 <p class="lead">{{ jot.description }}</p>
             </div>
             <div class="card-footer">
-                <a href="" class="btn btn-primary">New Jotting</a>
+                <a routerLink="/jots/{{ jot.slug }}" class="btn btn-primary">New Jotting</a>
             </div>
         </div>
     </div>
@@ -25,10 +27,9 @@
                     Never measure the height of a mountain until you have reached the top. Then you will see how low it
                     was. ---Dag Hammarskjold
                 </p>
+                <p>You don't have any jots...</p>
             </div>
         </div>
     </div>
 
 </div>
-
-<div class="loader" *ngIf="componentIsLoading">Loading...</div>

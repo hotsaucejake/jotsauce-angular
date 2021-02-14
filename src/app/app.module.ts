@@ -58,6 +58,7 @@ import { PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { SettingsComponent } from './shared/settings/settings.component';
+import { LoadingComponent } from './shared/loading/loading.component';
 
 
 export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
@@ -106,7 +107,7 @@ const icons = {
     VerticalNavigationComponent,
     BreadcrumbComponent,
     VerticalSidebarComponent,
-    SettingsComponent
+    SettingsComponent,
   ],
   imports: [
     CommonModule,
@@ -139,6 +140,9 @@ const icons = {
         deps: [HttpClient]
       }
     })
+  ],
+  exports: [
+    CommonModule,
   ],
   providers: [
     {

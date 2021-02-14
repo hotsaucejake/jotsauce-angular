@@ -11,4 +11,10 @@ export class JotService extends BaseService {
 
         return response;
     }
+
+    public async getJot(jot: string): Promise<ServiceResponse<Jot>> {
+        const response = this.getAsync<Jot>(`api/jot/${jot}`);
+
+        return response;
+    }
 }

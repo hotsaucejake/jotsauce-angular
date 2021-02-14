@@ -1,6 +1,7 @@
 import { Routes } from '@angular/router';
 import { IndexComponent } from './index/index.component';
 import { JotsComponent } from './jots/jots.component';
+import { JottingComponent } from './jotting/jotting.component';
 
 export const IndexRoutes: Routes = [
     {
@@ -21,8 +22,8 @@ export const IndexRoutes: Routes = [
                 }
             },
             {
-                path: 'jots/:id',
-                component: IndexComponent,
+                path: 'jots/:slug',
+                component: JottingComponent,
                 data: {
                     title: 'Jotting',
                     urls: [
