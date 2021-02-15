@@ -1,1 +1,10 @@
-{{ formElementType | json }}
+<div class="col" [ngSwitch]="formElementType.form_element.element">
+    <input *ngSwitchCase="'input'" [type]="formElementType.type">
+    <label *ngSwitchCase="'label'"></label>
+    <select *ngSwitchCase="'select'"></select>
+    <textarea *ngSwitchCase="'textarea'"></textarea>
+    <button *ngSwitchCase="'button'"></button>
+    <fieldset *ngSwitchCase="'fieldset'"></fieldset>
+    <datalist *ngSwitchCase="'datalist'"></datalist>
+    <ngb-alert *ngSwitchDefault type="danger" dismissible="false">Unrecognized Form Element</ngb-alert>
+</div>

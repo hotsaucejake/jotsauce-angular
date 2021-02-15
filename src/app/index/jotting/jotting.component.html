@@ -8,7 +8,7 @@
                 <h3>{{ jot.title }}</h3>
             </div>
             <div class="card-body">
-                <div *ngFor="let formElementType of jot.form_element_types">
+                <div *ngFor="let formElementType of jot.form_element_types" class="row mb-3">
                     <app-shared-form-elements [formElementType]="formElementType"></app-shared-form-elements>
                 </div>
             </div>
