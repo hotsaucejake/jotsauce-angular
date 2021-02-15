@@ -5,15 +5,15 @@ import { IndexComponent } from './index/index.component';
 import { RouterModule } from '@angular/router';
 import { IndexRoutes } from './index.routing';
 import { JottingComponent } from './jotting/jotting.component';
-import { LoadingComponent } from '../shared/loading/loading.component';
-import { BrowserModule } from '@angular/platform-browser';
+import { SharedModule } from '../shared/shared.module';
 
 
 
 @NgModule({
-  declarations: [JotsComponent, IndexComponent, JottingComponent, LoadingComponent],
+  declarations: [JotsComponent, IndexComponent, JottingComponent],
   imports: [
     CommonModule,
+    SharedModule,
     RouterModule.forChild(IndexRoutes)
   ],
   exports: [

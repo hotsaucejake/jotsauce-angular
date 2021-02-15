@@ -1,4 +1,4 @@
-import { FormElementType } from "./form-element-type.interface";
+import { FormElementType } from './form-element-type.interface';
 
 export interface Jot {
     id: number;

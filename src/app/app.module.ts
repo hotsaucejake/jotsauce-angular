@@ -43,13 +43,13 @@ import {
 import { FullComponent } from './layouts/full/full.component';
 import { BlankComponent } from './layouts/blank/blank.component';
 
-import { VerticalNavigationComponent } from './shared/vertical-header/vertical-navigation.component';
-import { VerticalSidebarComponent } from './shared/vertical-sidebar/vertical-sidebar.component';
-import { BreadcrumbComponent } from './shared/breadcrumb/breadcrumb.component';
+import { VerticalNavigationComponent } from './partials/vertical-header/vertical-navigation.component';
+import { VerticalSidebarComponent } from './partials/vertical-sidebar/vertical-sidebar.component';
+import { BreadcrumbComponent } from './partials/breadcrumb/breadcrumb.component';
 
 import { Approutes } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { SpinnerComponent } from './shared/spinner.component';
+import { SpinnerComponent } from './partials/spinner.component';
 
 import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
 import { PERFECT_SCROLLBAR_CONFIG } from 'ngx-perfect-scrollbar';
@@ -57,9 +57,7 @@ import { PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
 
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
-import { SettingsComponent } from './shared/settings/settings.component';
-import { LoadingComponent } from './shared/loading/loading.component';
-
+import { SettingsComponent } from './partials/settings/settings.component';
 
 export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
