@@ -4,7 +4,7 @@ export const ROUTES: RouteInfo[] = [
     {
         path: 'index',
         title: 'Index',
-        icon: 'mdi mdi-dots-horizontal',
+        icon: 'fas fa-th-list',
         class: '',
         extralink: false,
         submenu: [],
@@ -12,7 +12,7 @@ export const ROUTES: RouteInfo[] = [
     {
         path: 'jots',
         title: 'Jots',
-        icon: 'mdi mdi-book-open',
+        icon: 'fas fa-clipboard',
         class: '',
         extralink: false,
         submenu: [],
