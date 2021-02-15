@@ -39,6 +39,7 @@ export class JotsComponent implements OnInit {
       this.componentIsLoading = false;
       console.log(this.jots);
     }
+    console.log(resp);
   }
 
 }
