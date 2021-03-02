@@ -1,4 +1,4 @@
-<div class="col" [ngSwitch]="formElementType.form_element.element">
+<div class="col" [ngSwitch]="formElementType.form_element">
     <input *ngSwitchCase="'input'" [type]="formElementType.type">
     <label *ngSwitchCase="'label'"></label>
     <select *ngSwitchCase="'select'"></select>
