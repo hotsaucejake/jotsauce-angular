@@ -28,13 +28,12 @@ export class JottingComponent implements OnInit {
     if (resp.type === 'data') {
       this.jot = resp.data;
       this.componentIsLoading = false;
-      console.log(this.jot);
     } else {
       if (resp.status === 404) {
         this.router.navigate(['/auth/404'], { replaceUrl: true });
       }
     }
-    console.log(resp);
+
   }
 
 }

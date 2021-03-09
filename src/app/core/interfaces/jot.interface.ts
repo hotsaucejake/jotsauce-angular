@@ -1,4 +1,4 @@
-import { FormElementType } from './form-element-type.interface';
+import { FormElementJot } from './form-element-jot';
 
 export interface Jot {
     id: number;
@@ -8,5 +8,6 @@ export interface Jot {
     order_column?: number;
     created_at?: Date;
     updated_at?: Date;
-    form_element_types?: FormElementType[];
+    form_element_jots?: FormElementJot[];
+    // jot_entries?:
 }

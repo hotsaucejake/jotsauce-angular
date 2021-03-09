@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { FormElementType } from 'src/app/core/interfaces/form-element-type.interface';
+import { FormElementJot } from 'src/app/core/interfaces/form-element-jot';
 
 @Component({
   selector: 'app-shared-form-elements',
@@ -8,7 +8,7 @@ import { FormElementType } from 'src/app/core/interfaces/form-element-type.inter
 })
 export class FormElementsComponent implements OnInit {
 
-  @Input() formElementType: FormElementType = {} as FormElementType;
+  @Input() formElementJot: FormElementJot = {} as FormElementJot;
 
   constructor() { }
 

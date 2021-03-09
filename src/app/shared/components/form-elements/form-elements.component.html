@@ -1,5 +1,6 @@
-<div class="col" [ngSwitch]="formElementType.form_element">
-    <input *ngSwitchCase="'input'" [type]="formElementType.type">
+<div class="col" [ngSwitch]="formElementJot.form_element.element">
+    <app-shared-form-elements-input *ngSwitchCase="'input'" [formElementJot]="formElementJot">
+    </app-shared-form-elements-input>
     <label *ngSwitchCase="'label'"></label>
     <select *ngSwitchCase="'select'"></select>
     <textarea *ngSwitchCase="'textarea'"></textarea>
