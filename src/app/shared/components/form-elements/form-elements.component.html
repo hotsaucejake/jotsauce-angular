@@ -1,5 +1,6 @@
 <div class="col" [ngSwitch]="formElementJot.form_element.element">
-    <app-shared-form-elements-input *ngSwitchCase="'input'" [formElementJot]="formElementJot">
+    <app-shared-form-elements-input *ngSwitchCase="'input'" [formElementJot]="formElementJot"
+        (output)="setFormElementValue($event)">
     </app-shared-form-elements-input>
     <label *ngSwitchCase="'label'"></label>
     <select *ngSwitchCase="'select'"></select>

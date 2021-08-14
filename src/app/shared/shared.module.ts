@@ -4,6 +4,7 @@ import { LoadingComponent } from './components/loading/loading.component';
 import { FormElementsComponent } from './components/form-elements/form-elements.component';
 import { NgbAlertModule } from '@ng-bootstrap/ng-bootstrap';
 import { InputComponent } from './components/form-elements/input/input.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -12,6 +13,7 @@ import { InputComponent } from './components/form-elements/input/input.component
   imports: [
     CommonModule,
     NgbAlertModule,
+    ReactiveFormsModule
   ],
   exports: [FormElementsComponent, LoadingComponent]
 })

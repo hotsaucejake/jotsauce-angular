@@ -1,4 +1,5 @@
-import { Component, HostBinding, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { FormControl } from '@angular/forms';
 import { FormElementAttributeFormElementJot } from 'src/app/core/interfaces/form-element-attribute-form-element-jot.interface';
 import { FormElementJot } from 'src/app/core/interfaces/form-element-jot';
 
@@ -10,6 +11,9 @@ import { FormElementJot } from 'src/app/core/interfaces/form-element-jot';
 export class InputComponent implements OnInit {
 
   @Input() formElementJot: FormElementJot = {} as FormElementJot;
+  @Output() output = new EventEmitter<string | number>();
+
+  public inputElement = new FormControl();
 
   public accept: string | null = null;
   public alt: string | null = null;
@@ -48,6 +52,9 @@ export class InputComponent implements OnInit {
 
   public ngOnInit(): void {
     this.setAttributes(this.formElementJot.form_element_attribute_form_element_jots);
+    this.inputElement.valueChanges.subscribe(value => {
+      this.output.emit(value);
+    });
   }
 
   private setAttributes(attributes: FormElementAttributeFormElementJot[]): void {
