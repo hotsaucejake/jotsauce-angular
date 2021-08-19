@@ -12,55 +12,55 @@ import { BaseService } from './_base.service';
 @Injectable({ providedIn: 'root' })
 export class AuthService extends BaseService {
 
-    private async csrfCookie(): Promise<void> {
-        const response = await this.getAsync('sanctum/csrf-cookie');
+  private async csrfCookie(): Promise<void> {
+    const response = await this.getAsync('sanctum/csrf-cookie');
+  }
+
+  public async login(authModel: UserCredentials, remember: boolean): Promise<ServiceResponse<AuthenticationResponse>> {
+    this.csrfCookie();
+    const response = await this.postAsync<AuthenticationResponse>('api/auth/login', authModel);
+
+    if (response.type === 'data') {
+      AuthenticationService.setAuthentication(response.data, remember);
     }
 
-    public async login(authModel: UserCredentials, remember: boolean): Promise<ServiceResponse<AuthenticationResponse>> {
-        this.csrfCookie();
-        const response = await this.postAsync<AuthenticationResponse>('api/auth/login', authModel);
-
-        if (response.type === 'data') {
-            AuthenticationService.setAuthentication(response.data, remember);
-        }
-
-        if (remember && authModel.email) {
-            localStorage.setItem('email', authModel.email);
-        } else {
-            localStorage.removeItem('email');
-        }
-
-        return response;
+    if (remember && authModel.email_or_username) {
+      localStorage.setItem('email_or_username', authModel.email_or_username);
+    } else {
+      localStorage.removeItem('email_or_username');
     }
 
-
-    public async logout(): Promise<ServiceResponse<void>> {
-
-        const response = await this.getAsync<void>('api/auth/logout');
-        AuthenticationService.clearAuthentication();
-
-        return response;
-    }
+    return response;
+  }
 
 
-    public async register(registerModel: Register): Promise<ServiceResponse<User>> {
-        const response = this.postAsync<User>(`api/auth/register`, registerModel);
+  public async logout(): Promise<ServiceResponse<void>> {
 
-        return response;
-    }
+    const response = await this.getAsync<void>('api/auth/logout');
+    AuthenticationService.clearAuthentication();
 
-
-    public async checkUsernameAvailability(accountAvailability: AccountAvailability): Promise<ServiceResponse<boolean>> {
-        const response = this.postAsync<boolean>(`api/auth/username-availability`, accountAvailability);
-
-        return response;
-    }
+    return response;
+  }
 
 
-    public async checkEmailAvailability(accountAvailability: AccountAvailability): Promise<ServiceResponse<boolean>> {
-        const response = this.postAsync<boolean>(`api/auth/email-availability`, accountAvailability);
+  public async register(registerModel: Register): Promise<ServiceResponse<User>> {
+    const response = this.postAsync<User>(`api/auth/register`, registerModel);
 
-        return response;
-    }
+    return response;
+  }
+
+
+  public async checkUsernameAvailability(accountAvailability: AccountAvailability): Promise<ServiceResponse<boolean>> {
+    const response = this.postAsync<boolean>(`api/auth/username-availability`, accountAvailability);
+
+    return response;
+  }
+
+
+  public async checkEmailAvailability(accountAvailability: AccountAvailability): Promise<ServiceResponse<boolean>> {
+    const response = this.postAsync<boolean>(`api/auth/email-availability`, accountAvailability);
+
+    return response;
+  }
 
 }

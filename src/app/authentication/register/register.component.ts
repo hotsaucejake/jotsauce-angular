@@ -49,7 +49,7 @@ export class RegisterComponent implements OnInit {
 
         const response = await this.authService.register(this.registerModel);
         if (response.type === 'data') {
-          localStorage.setItem('email', response.data.email);
+          localStorage.setItem('email_or_username', response.data.username);
           this.router.navigate(['auth/login'], { replaceUrl: true });
         } else {
           response.errors?.forEach(error => {

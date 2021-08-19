@@ -1,75 +1,76 @@
 <div class="auth-wrapper d-flex no-block justify-content-center align-items-center" id="login-background">
-    <div class="auth-box m-3 m-md-0">
-        <div id="loginform">
-            <div class="logo">
-                <h5 class="font-medium m-b-20">jotsauce</h5>
+  <div class="auth-box m-3 m-md-0">
+    <div id="loginform">
+      <div class="logo">
+        <h5 class="font-medium m-b-20">jotsauce</h5>
+      </div>
+      <!-- Form -->
+      <div class="row">
+        <div class="col-12">
+          <form class="form-horizontal m-t-20" id="loginform" style="min-width: 350px;" name="login"
+            #loginForm="ngForm">
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text"><i class="ti-user"></i></span>
+              </div>
+              <input type="email" name="email_or_username" class="form-control"
+                placeholder="email@example.com / username" aria-label="email_or_username"
+                [(ngModel)]="userCredentials.email_or_username" [disabled]="componentIsLoading"
+                (keyup.enter)="login(loginForm.form)" #email_or_username="ngModel" required>
+              <div class="invalid-feedback d-block"
+                *ngIf="email_or_username.errors?.required && loginForm.form.touched">
+                Required</div>
             </div>
-            <!-- Form -->
-            <div class="row">
-                <div class="col-12">
-                    <form class="form-horizontal m-t-20" id="loginform" style="min-width: 350px;" name="login"
-                        #loginForm="ngForm">
-                        <div class="input-group mb-3">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text"><i class="ti-user"></i></span>
-                            </div>
-                            <input type="email" name="email" class="form-control" placeholder="email@example.com"
-                                aria-label="email" [(ngModel)]="userCredentials.email" [disabled]="componentIsLoading"
-                                (keyup.enter)="login(loginForm.form)" #email="ngModel" required>
-                            <div class="invalid-feedback d-block"
-                                *ngIf="email.errors?.required && loginForm.form.touched">Required</div>
-                        </div>
-                        <div class="input-group mb-3">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text"><i class="ti-key"></i></span>
-                            </div>
-                            <input type="password" name="password" class="form-control" placeholder="Password"
-                                aria-label="Password" [(ngModel)]="userCredentials.password" #password="ngModel"
-                                [disabled]="componentIsLoading" (keyup.enter)="login(loginForm.form)" required>
-                            <div class="invalid-feedback d-block"
-                                *ngIf="password.errors?.required && loginForm.form.touched">Required</div>
-                        </div>
-                        <div class="form-group row">
-                            <div class="col-md-12">
-                                <div class="custom-control custom-checkbox d-flex">
-                                    <input type="checkbox" class="custom-control-input" id="rememberUser"
-                                        [disabled]="componentIsLoading" name="rememberUser" #rememberUser="ngModel"
-                                        [(ngModel)]="remember">
-                                    <label class="custom-control-label font-14" for="rememberUser">Remember me</label>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-group text-center">
-                            <div class="col-xs-12 p-b-20">
-                                <a class="btn btn-block btn-lg btn-primary" [class.disabled]="componentIsLoading"
-                                    (click)="login(loginForm.form)">
-                                    <span class="spinner-border spinner-border-sm" role="status"
-                                        *ngIf="componentIsLoading" aria-hidden="true"></span>
-                                    Login
-                                </a>
-                            </div>
-                        </div>
-
-
-
-                        <div class="form-group m-b-0 m-t-10">
-                            <div class="col-sm-12 text-center">
-                                <div class="col-sm-12 text-center">
-                                    <a routerLink="/auth/register">
-                                        <i class="fas fa-clipboard-check"></i> Register</a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="form-group m-b-0 m-t-10">
-                            <div class="col-sm-12 text-center">
-                                <a href="javascript:void(0)">
-                                    <i class="fa fa-lock"></i> Forgot password?</a>
-                            </div>
-                        </div>
-                    </form>
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text"><i class="ti-key"></i></span>
+              </div>
+              <input type="password" name="password" class="form-control" placeholder="Password" aria-label="Password"
+                [(ngModel)]="userCredentials.password" #password="ngModel" [disabled]="componentIsLoading"
+                (keyup.enter)="login(loginForm.form)" required>
+              <div class="invalid-feedback d-block" *ngIf="password.errors?.required && loginForm.form.touched">Required
+              </div>
+            </div>
+            <div class="form-group row">
+              <div class="col-md-12">
+                <div class="custom-control custom-checkbox d-flex">
+                  <input type="checkbox" class="custom-control-input" id="rememberUser" [disabled]="componentIsLoading"
+                    name="rememberUser" #rememberUser="ngModel" [(ngModel)]="remember">
+                  <label class="custom-control-label font-14" for="rememberUser">Remember me</label>
                 </div>
+              </div>
             </div>
+            <div class="form-group text-center">
+              <div class="col-xs-12 p-b-20">
+                <a class="btn btn-block btn-lg btn-primary" [class.disabled]="componentIsLoading"
+                  (click)="login(loginForm.form)">
+                  <span class="spinner-border spinner-border-sm" role="status" *ngIf="componentIsLoading"
+                    aria-hidden="true"></span>
+                  Login
+                </a>
+              </div>
+            </div>
+
+
+
+            <div class="form-group m-b-0 m-t-10">
+              <div class="col-sm-12 text-center">
+                <div class="col-sm-12 text-center">
+                  <a routerLink="/auth/register">
+                    <i class="fas fa-clipboard-check"></i> Register</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group m-b-0 m-t-10">
+              <div class="col-sm-12 text-center">
+                <a href="javascript:void(0)">
+                  <i class="fa fa-lock"></i> Forgot password?</a>
+              </div>
+            </div>
+          </form>
         </div>
+      </div>
     </div>
+  </div>
 </div>

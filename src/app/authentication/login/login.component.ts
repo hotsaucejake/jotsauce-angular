@@ -17,7 +17,7 @@ export class LoginComponent implements OnInit {
   public componentIsLoading = false;
 
   public userCredentials: UserCredentials = {
-    email: localStorage.getItem('email') ? localStorage.getItem('email') : '',
+    email_or_username: localStorage.getItem('email_or_username') ?? '',
     password: ''
   };
 
@@ -38,7 +38,7 @@ export class LoginComponent implements OnInit {
       this.router.navigate(['/'], { replaceUrl: true });
     }
 
-    this.remember = !!localStorage.getItem('email');
+    this.remember = !!localStorage.getItem('email_or_username');
 
   }
 
