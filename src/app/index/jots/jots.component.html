@@ -2,37 +2,37 @@
 
 <div class="row" *ngIf="!componentIsLoading">
 
-    <div class="col-md-4 col-sm-6 d-flex align-items-stretch" *ngFor="let jot of jots">
-        <div class="card border w-100">
-            <div class="card-header">
-                <h3>{{ jot.title }}</h3>
-            </div>
-            <div class="card-body">
-                <p class="lead">{{ jot.description }}</p>
-            </div>
-            <div class="card-footer">
-                <a routerLink="/jots/{{ jot.slug }}" class="btn btn-primary btn-sm float-right">New {{ jot.title }}
-                    Jotting</a>
-            </div>
-        </div>
+  <div class="col-md-4 col-sm-6 d-flex align-items-stretch" *ngFor="let jot of jots">
+    <div class="card border w-100">
+      <div class="card-header">
+        <h3>{{ jot.title }}</h3>
+      </div>
+      <div class="card-body">
+        <p class="lead">{{ jot.description }}</p>
+      </div>
+      <div class="card-footer">
+        <a routerLink="/jots/{{ jot.slug }}" class="btn btn-primary btn-sm float-right">New {{ jot.title }}
+          Jotting</a>
+      </div>
     </div>
+  </div>
 
-    <div class="col-md-4 col-sm-6 d-flex align-items-stretch">
-        <div class="card border border-success w-100">
-            <div class="card-header">
-                <h3><i class="fas fa-plus-circle"></i> Create New Jot</h3>
-            </div>
-            <div class="card-body">
-                <p>Journaling Observable Type</p>
-                <p>Think of a jot as a "type" of thing you want to record. You're simply creating the
-                    interface to record a new jotting. For instance, a "Weight" jot will contain inputs for the weight
-                    and a date.</p>
-            </div>
-            <div class="card-footer">
-                <a routerLink="/jots#notImplemented" class="btn btn-success btn-sm float-right"><i
-                        class="fas fa-plus-circle"></i> Create</a>
-            </div>
-        </div>
+  <div class="col-md-4 col-sm-6 d-flex align-items-stretch">
+    <div class="card border border-success w-100">
+      <div class="card-header">
+        <h3><i class="fas fa-plus-circle"></i> Create New Jot</h3>
+      </div>
+      <div class="card-body">
+        <p>Journaling Observable Type</p>
+        <p>Think of a jot as a "type" of thing you want to record. You're simply creating the
+          interface to record a new jotting. For instance, a "Weight" jot will contain inputs for the weight
+          and a date.</p>
+      </div>
+      <div class="card-footer">
+        <a routerLink="/jot-create" class="btn btn-success btn-sm float-right"><i class="fas fa-plus-circle"></i>
+          Create</a>
+      </div>
     </div>
+  </div>
 
 </div>
