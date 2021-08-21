@@ -1,0 +1,20 @@
+<app-shared-loading *ngIf="componentIsLoading"></app-shared-loading>
+
+<div class="row" *ngIf="!componentIsLoading">
+
+  <div class="col-md-4 col-sm-6 d-flex align-items-stretch" *ngFor="let formElement of formElements">
+    <div class="card border w-100">
+      <div class="card-header">
+        <h3>{{ formElement.id }} - {{ formElement.element }}</h3>
+      </div>
+      <div class="card-body">
+        <h5>Attributes</h5>
+        <p>
+          <span *ngFor="let attribute of formElement.attributes">
+            {{ attribute.id }} - {{ attribute.attribute }} <br>
+          </span>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

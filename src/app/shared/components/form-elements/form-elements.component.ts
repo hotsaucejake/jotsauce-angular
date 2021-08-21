@@ -19,7 +19,7 @@ export class FormElementsComponent implements OnInit {
     console.log(this.formElementJot);
   }
 
-  public setFormElementValue(value: string | number) {
+  public setFormElementValue(value: string | number): void {
     this.formElementValue = value;
     this.output.emit(this.formElementValue);
   }
